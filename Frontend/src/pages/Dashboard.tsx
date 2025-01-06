@@ -59,7 +59,7 @@ export function Dashboard() {
                   },
                 }
               );
-              const url = `http://localhost:5173/share/${response.data.hash}`;
+              const url = `https://mybrain-backend.onrender.com/${response.data.hash}`;
               alert(url);
             }}
             variant="Secondary"

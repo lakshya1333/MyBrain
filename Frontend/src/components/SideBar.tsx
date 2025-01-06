@@ -4,11 +4,16 @@ import { TwitterIcon } from "../icons/TwitterIcon";
 import { YoutubeIcon } from "../icons/YouIcon";
 import { SideBarItem } from "./SideBarItems";
 
-export function SideBar({ onSelectContent }: { onSelectContent: (type: string) => void }) {
+type SideBarProps = {
+  onSelectContent?: (type: string) => void; // Mark as optional
+};
+
+export function SideBar({ onSelectContent }: SideBarProps) {
     const [activeItem, setActiveItem] = useState("");
   
     const handleItemClick = (item: string) => {
       setActiveItem(item);
+      //@ts-ignore
       onSelectContent(item.toLowerCase());
     };
   

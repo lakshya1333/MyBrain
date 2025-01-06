@@ -1,1 +1,1 @@
-export const BACKEND_URL = "my-brain-yc1q-server.vercel.app"
+export const BACKEND_URL = "https://mybrain-backend.onrender.com"

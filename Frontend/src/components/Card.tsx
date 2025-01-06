@@ -1,4 +1,4 @@
-import { ShareIcon } from "../icons/ShareIcon";
+
 import { Take } from "../icons/Take";
 
 interface cardProps{

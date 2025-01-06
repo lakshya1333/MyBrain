@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default styles for mobile */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Styles for larger screens */
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 18rem; /* Equivalent to w-72 in Tailwind */
+      height: 100vh;
+      border-right: 1px solid #ddd;
+      border-bottom: none;
+    }
+  }
+  

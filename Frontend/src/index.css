@@ -1,25 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Default styles for mobile */
+/* Global Styles */
+* {
+  @apply transition-colors duration-200;
+}
+
+body {
+  @apply antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar - Monotone */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Sidebar Styles */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    background-color: white;
-    border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  border-bottom: 1px solid #e5e5e5;
+  @apply shadow-elegant;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 18rem;
+    height: 100vh;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: none;
   }
-  
-  /* Styles for larger screens */
-  @media (min-width: 768px) {
-    .sidebar {
-      width: 18rem; /* Equivalent to w-72 in Tailwind */
-      height: 100vh;
-      border-right: 1px solid #ddd;
-      border-bottom: none;
-    }
+}
+
+/* Elegant Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Focus Styles */
+input:focus, textarea:focus, button:focus {
+  @apply outline-none ring-2 ring-gray-300 ring-offset-2;
+}
+
+/* Card Hover Effect */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-elegant-lg hover:-translate-y-1;
+}
+
+/* Button Hover Effect */
+.btn-hover {
+  @apply transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+}
   

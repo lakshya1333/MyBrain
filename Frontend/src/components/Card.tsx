@@ -9,27 +9,41 @@ interface cardProps{
 
 export function Card(props: cardProps){
     return(
-        <div>
-        <div className="p-4 bg-white rounded-md shadow-md outline-slate-200 max-w-72 border border-gray-200 min-h-48 min-w-72">
-            <div className="flex justify-between">
+        <div className="animate-fadeIn">
+        <div className="p-6 bg-white rounded-xl shadow-elegant border border-gray-200 max-w-80 min-h-52 min-w-80 card-hover">
+            <div className="flex justify-between items-start mb-4">
             <div className="flex items-center">
-                
-                {props.title}
+                <h3 className="text-gray-800 font-medium text-sm line-clamp-2">{props.title}</h3>
             </div>
-            <div className="flex items-center">
-                <div className="pr-2">
-                    <a href={props.link} target="_blank">
+            <div className="flex items-center ml-2">
+                <a 
+                    href={props.link} 
+                    target="_blank"
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    aria-label="Open content"
+                >
                     <Take/>
-                   </a>
-                </div>
+                </a>
             </div>
             </div>
-            <div className="pt-4">
-                {props.type === "youtube" && <iframe className="w-full" src={props.link.replace("watch","embed").replace("?v=","/")} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+            <div className="pt-2">
+                {props.type === "youtube" && (
+                    <iframe 
+                        className="w-full rounded-lg" 
+                        src={props.link.replace("watch","embed").replace("?v=","/")} 
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
+                    />
+                )}
 
-                {props.type === "twitter" && <blockquote className="twitter-tweet">
-               <a href={props.link.replace("x.com","twitter.com")}></a> 
-                </blockquote>}
+                {props.type === "twitter" && (
+                    <blockquote className="twitter-tweet">
+                        <a href={props.link.replace("x.com","twitter.com")}></a> 
+                    </blockquote>
+                )}
             </div>
         </div>
         </div>

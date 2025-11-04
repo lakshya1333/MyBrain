@@ -11,12 +11,14 @@ export function SideBarItem({ text, icon, onClick, isActive }: SideBarItemProps)
     return (
         <div
             onClick={onClick}
-            className={`flex items-center p-3 cursor-pointer ${
-                isActive ? "bg-gray-200 text-purple-600 font-bold" : "text-gray-700"
-            } hover:bg-gray-100`}
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-all ${
+                isActive 
+                    ? "bg-gray-900 text-white shadow-elegant" 
+                    : "text-gray-600 hover:bg-gray-100"
+            }`}
         >
-            <div className="pr-2">{icon}</div>
-            {text}
+            <div className="w-5 h-5">{icon}</div>
+            <span className="font-medium text-sm">{text}</span>
         </div>
     );
 }

@@ -29,19 +29,28 @@ export function ShareDashboard() {
   }, [shareLink]);
 
   return (
-    <div className="flex flex-col sm:flex-row">
+    <div className="flex flex-col sm:flex-row bg-gray-50 min-h-screen">
       {/* Sidebar */}
       <SideBar />
 
-      <div className="flex-1 p-4 bg-slate-400 border-2 sm:ml-72 mt-[4rem] sm:mt-0 min-h-screen">
+      <div className="flex-1 p-8 sm:ml-72 mt-[4rem] sm:mt-0">
+        <div className="mb-8">
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">Shared Brain</h1>
+          <p className="text-gray-600">Shared by: <span className="font-medium text-gray-900">{username}</span></p>
+        </div>
 
-        <h1 className="text-xl font-bold mb-4">Shared by: {username}</h1>
-
-        <div className="flex gap-4 flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {contents.map(({ type, link, title }) => (
             <Card key={link} type={type} link={link} title={title} />
           ))}
         </div>
+
+        {/* Empty State */}
+        {contents.length === 0 && (
+          <div className="flex flex-col items-center justify-center mt-20 text-gray-400">
+            <p className="text-lg">No shared content available</p>
+          </div>
+        )}
       </div>
     </div>
   );

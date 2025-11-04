@@ -35,37 +35,36 @@ export function SignUp(){
     }
 
     return(
-        <div className="w-screen h-screen bg-gray-400 flex justify-center items-center">
-    <div className="bg-gray-100 p-8 rounded-xl shadow-lg flex flex-col items-center">
-    <h1 className="text-4xl font-extrabold text-gray-800 mb-6 flex items-center">
-    Welcome to <span className="mx-2"><Brain /></span> My Brain
-</h1>
-
-        <div className="bg-white rounded-xl border border-gray-300 p-6 w-full max-w-md">
-            <h2 className="text-3xl font-extrabold text-center text-gray-700 mb-4">
-                Sign Up
-            </h2>
-            <Input ref={usernameRef} placeholder="Username" />
-            <Input ref={passwordRef} placeholder="Password" />
-            <h3 className="text-sm text-gray-600 text-right mb-4">
-                Already a user? <a className="text-blue-500 hover:underline" href="/signin">Sign In</a>
-            </h3>
-            {errorMessage && (
-                        <p className="text-red-500 text-sm mt-2 text-center">{errorMessage}</p>
+        <div className="w-screen h-screen bg-gray-50 flex justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-elegant-lg flex flex-col items-center p-10 max-w-lg w-full mx-4">
+                <div className="flex items-center gap-3 mb-8">
+                    <Brain />
+                    <h1 className="text-3xl font-semibold text-gray-900">My Brain</h1>
+                </div>
+                <div className="bg-gray-50 rounded-xl border border-gray-200 p-8 w-full">
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Sign Up</h2>
+                    <div className="space-y-4">
+                        <Input ref={usernameRef} placeholder="Username" />
+                        <Input ref={passwordRef} placeholder="Password" />
+                    </div>
+                    <div className="flex justify-end mt-4 text-sm">
+                        <span className="text-gray-600">Already a user? </span>
+                        <a className="text-gray-900 hover:underline ml-1 font-medium" href="/signin">Sign In</a>
+                    </div>
+                    {errorMessage && (
+                        <p className="text-red-600 text-sm mt-4 text-center bg-red-50 py-2 px-3 rounded-lg">{errorMessage}</p>
                     )}
-            <div className="flex justify-center">
-                <Button
-                    onClick={signup}
-                    variant="Primary"
-                    text="Sign Up"
-                    fullWidth={true}
-                    loading={false}
-                />
+                    <div className="flex justify-center pt-6">
+                        <Button
+                            onClick={signup}
+                            variant="Primary"
+                            text="Sign Up"
+                            fullWidth={true}
+                            loading={false}
+                        />
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
     )
 }
